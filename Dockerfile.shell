@@ -1,0 +1,27 @@
+#Example dockerfile to use the "shell" form
+#In shell form commands cmd,run executed via /bin/sh -c
+
+#Base image. On top, running all other commands mentioned in this dockerfile.
+FROM centos:7
+
+#To run commands
+RUN yum update -y && yum install -y httpd \
+	nmap \
+	unzip
+#Above package installed via /bin/sh -c yum update -y....
+
+
+#Do not follow the below method for run
+#RUN yum update -y -->this image layer might be already there
+#RUN yum install -y httpd ->so installed version of this package might be outdated Or may be not available.
+
+#Defining an environment variable
+env name Nidhish
+#We can use this env in shell form
+CMD hiiiii
+ENTRYPOINT echo "hi"
+
+#Command that run on the container when it start. It will run via ENTRYPOINT
+#CMD Helloo, $name
+#CMD Hiiii, $name
+#CMD This line

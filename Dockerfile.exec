@@ -1,0 +1,28 @@
+#Example dockerfile to use the "exec" form
+#exec form, directly call the executable. 
+
+#Base image. On top, running all other commands mentioned in this dockerfile.
+FROM centos:7
+
+#To run commands
+RUN ["yum", "update", "-y"]
+# && yum install -y httpd \
+#       nmap \
+#      unzip
+
+#Do not follow the below method for run
+#RUN yum update -y -->this image layer might be already there
+#RUN yum install -y httpd ->so installed version of this package might be outdated Or may be not available.
+
+#Defining an environment variable
+env name Nidhish
+#We can use this env in shell form
+
+#ENTRYPOINT ["echo", "entry-line"]
+ENTRYPOINT ["cat"]
+
+#Command that run on the container when it start. It will run via ENTRYPOINT
+CMD ["/etc/passwd"]
+#CMD Hiiii, $name
+#CMD This line
+
