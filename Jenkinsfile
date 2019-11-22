@@ -9,8 +9,10 @@ pipeline {
 
 
          }
+         stage('Print') {
          steps {
             sh 'echo Hello'
+         }
          }
       }
    }
