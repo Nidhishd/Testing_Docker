@@ -9,6 +9,9 @@ pipeline {
 
 
          }
+         steps {
+            sh 'echo Hello'
+         }
       }
    }
 }
